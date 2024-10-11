@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Website
+comment1.params=
+comment1.target=Website()
+comment2.params=domainName\ topDomain
+comment2.target=Website(java.lang.String,\ java.lang.String)
+comment3.params=api
+comment3.target=void\ fetchData(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ toString()
+comment5.params=args
+comment5.target=void\ main(java.lang.String[])
+numComments=6
