@@ -1,5 +1,7 @@
 import java.io.*;
 import java.net.*;
+import java.util.*;
+import java.lang.Math;
 
 public class Website {
 
@@ -66,7 +68,7 @@ public Website(String domainName, String topDomain) {
     public String toString()
     {
         
-        String res =  "https://" + domain + "." + topLevelDomain;
+        String res =  "http://" + domain + "." + topLevelDomain;
        // res += " has " + numUsers + " users";
         
         return res;
@@ -74,10 +76,37 @@ public Website(String domainName, String topDomain) {
 
     // Main method to test the API call
     public static void main(String[] args) {
-        Website website = new Website("randomuser", "me"); // Create an instance of Website
-        website.fetchData("api"); // Call the instance method
+
+
+        // NEVER USE access modifiers inside methods
+        // here, every variable is local
+        // local variable use Type only
+        // reference variables Class type
+
+        
+        Website website = new Website("ip-api", "com"); // Create an instance of Website
+        website.fetchData("json"); // Call the instance method
         
         Website website2 = new Website("google", "com");
         System.out.println(website2);
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter the latitude of the starting location:");
+        double lat_init = scanner.nextFloat();
+        System.out.println("Enter the longitude of the starting location:");
+        double long_init = scanner.nextFloat();
+
+        System.out.println("Enter the latitude of the final location:");
+        double lat_final = scanner.nextFloat();
+        System.out.println("Enter the longitude of the final location:");
+        double long_final = scanner.nextFloat();
+
+        scanner.close();
+
+        double distance = Math.pow((Math.pow(lat_final - lat_init, 2) + Math.pow(long_final - long_init, 2)),0.5);
+
+        System.out.println("The distance is " + distance + " miles.");
+
     }
 }
