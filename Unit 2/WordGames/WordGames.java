@@ -12,20 +12,24 @@ public class WordGames extends Actor
      * Act - do whatever the WordGames wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+        private String word;
+        GreenfootImage img;
+    
 
     public WordGames(String text) {
+
         word = text;
         img = new GreenfootImage(word, 24, Color.BLUE, Color.WHITE);
         setImage(img);
-    }
-
+     }
+    
     public String scramble()
     {
         int full = word.length();
         int half = word.length()/2;
-        String newWord = word.substring(half+1, full-1) + word.substring(0,half);
+        String newWord = word.substring(half) + word.substring(0,half);
+        return newWord;
     }
-    
     
     public String bananaSplit(int insertIdx, String insertText)
     {
@@ -37,7 +41,6 @@ public class WordGames extends Actor
        
     }
     
-    
     public String bananaSplit(String insertChar, String insertText)
     {
         int first = word.indexOf(insertChar);
@@ -46,7 +49,6 @@ public class WordGames extends Actor
         
     }
     
-    
     public String toString()
     {
         // Games[word]
@@ -54,10 +56,12 @@ public class WordGames extends Actor
         return "[" + word + "]";
         
     }
-    
-    
 
-    public static void main(String[] args) {
-        
+    public void act() {
+        WordGames word = new WordGames("BergenTech");
+        System.out.println(word.scramble());
+        System.out.println(word.bananaSplit(5,"bruh"));        
+        System.out.println(word.bananaSplit("T","bruh"));
+
     }
 }
