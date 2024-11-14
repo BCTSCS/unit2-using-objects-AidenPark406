@@ -17,10 +17,23 @@
         System.out.println("\n=== Practice Exercises ===\n");
         exercises();
 
+<<<<<<< HEAD
         // Lab - Wrapper Class Task 1
         System.out.println("\n=== valueOf vs New === \n");
         valueVsNew();
+=======
+
+        System.out.println("\n=== Lab: valueOf vs New ===\n");
+        valueVsNew();
+
+        System.out.println("\n=== Lab: Caching ===\n");
+        caching();
+
+        System.out.println("\n=== String Method Task: Count Vowels ===\n");
+        countVowels("According to all known laws of aviation, there is no way a bee should be able to fly.");
+>>>>>>> 7300a8b955ca032baea51ee72a66b8662e35fc62
     }
+
 
     public static void stringPractice() {
         // Exercise 1: indexOf() and substring()
@@ -128,8 +141,42 @@
             System.out.println("Character not found.");
         }
     }
+
+    public static void valueVsNew() {
+        Integer val1 = Integer.valueOf(100);
+        Integer val2 = Integer.valueOf(100);
+        Integer newInt1 = new Integer(100);
+        Integer newInt2 = new Integer(100);
+    
+        System.out.println("Using valueOf: " + (val1 == val2));  
+        System.out.println("Using new: " + (newInt1 == newInt2));
+    }
+
+
+    public static void caching() {
+        Integer intA = Integer.valueOf(127);
+        Integer intB = Integer.valueOf(127);
+        Integer intC = Integer.valueOf(128);
+        Integer intD = Integer.valueOf(128);
+    
+        System.out.println("127 == 127 (cached): " + (intA == intB)); 
+        System.out.println("128 == 128 (not cached): " + (intC == intD));
+    }
+    
+    public static void countVowels(String str) { // for loop is wild
+        int count = 0; // set vowel count to 0
+        String vowels = "aeiouAEIOU"; // list out all potential vowels
+        for (int i = 0; i < str.length(); i++) { // for all characters in string str
+            if (vowels.indexOf(str.charAt(i)) != -1) { // if character matches any character in vowels, indicating that it is a vowel,
+                count++; // increase vowel count
+            }
+        }
+        System.out.println("Number of vowels in " + "\"" + str + "\"" + ": " + count); // return vowel count
+    }
+    
 }
 
+<<<<<<< HEAD
 public static void valueVsNew() {
     Integer val1 = Integer.valueOf(100);
     Integer val2 = Integer.valueOf(100);
@@ -139,6 +186,8 @@ public static void valueVsNew() {
     System.out.println("Using valueOf: " + (val1 == val2));  // true, because it uses cached instance
     System.out.println("Using new Integer: " + (newInt1 == newInt2));  // false, as they are different objects
 }
+=======
+>>>>>>> 7300a8b955ca032baea51ee72a66b8662e35fc62
 
 /**
  * Lab Tasks to Complete:
