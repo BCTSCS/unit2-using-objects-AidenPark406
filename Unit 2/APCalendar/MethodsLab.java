@@ -16,6 +16,10 @@
         // Section 3: Practice Exercises
         System.out.println("\n=== Practice Exercises ===\n");
         exercises();
+
+        // Lab - Wrapper Class Task 1
+        System.out.println("\n=== valueOf vs New === \n");
+        valueVsNew();
     }
 
     public static void stringPractice() {
@@ -124,6 +128,16 @@
             System.out.println("Character not found.");
         }
     }
+}
+
+public static void valueVsNew() {
+    Integer val1 = Integer.valueOf(100);
+    Integer val2 = Integer.valueOf(100);
+    Integer newInt1 = new Integer(100);
+    Integer newInt2 = new Integer(100);
+
+    System.out.println("Using valueOf: " + (val1 == val2));  // true, because it uses cached instance
+    System.out.println("Using new Integer: " + (newInt1 == newInt2));  // false, as they are different objects
 }
 
 /**
